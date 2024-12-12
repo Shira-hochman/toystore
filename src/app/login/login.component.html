@@ -1,0 +1,67 @@
+<div id="f">
+  <p-card  class="custom-card">
+    <img src="/assets/Little (3).png" width="150px">
+    <h2 class="card-title">התחברות</h2>
+    
+<form (ngSubmit)="checkCustomer()" #customerForm="ngForm" class="p-fluid">
+  <div class="p-field">
+    <p-floatLabel>
+          <input
+            pInputText
+            id="name"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            #nameInput="ngModel"
+            pattern="^[A-Za-z\u0590-\u05FF\s]+$"
+            required
+            autocomplete="off"
+          />
+          <label for="name">שם מלא*</label>
+        </p-floatLabel>
+        <small class="p-error" *ngIf="nameInput.invalid && nameInput.touched">
+          יש להזין שם המכיל אותיות בלבד
+        </small>
+      </div>
+
+      <div class="p-field">
+        <p-floatLabel>
+          <input
+            id="email"
+            type="email"
+            pInputText
+            [(ngModel)]="email"
+            name="email"
+            #emailInput="ngModel"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            required
+          />
+          <label for="email">אימייל*</label>
+        </p-floatLabel>
+        <small class="p-error" *ngIf="emailInput.invalid && emailInput.touched">
+          יש להזין אימייל תקין
+        </small>
+      </div>
+
+      <div class="p-field">
+        <button
+          pButton
+          type="submit"
+          label="שלח"
+          class="p-button-success custom-submit-button"
+          
+          [disabled]="customerForm.invalid"
+        ></button>
+      </div>
+
+      <div class="p-field-checkbox">
+        <p-checkbox
+          name="accept"
+          [(ngModel)]="accept"
+          binary="true"
+        ></p-checkbox>
+        <label>מאשר/ת קבלת מיילים בנושאים שונים</label>
+      </div>
+    </form>
+  </p-card>
+</div>

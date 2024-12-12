@@ -1,0 +1,10 @@
+#f{
+    width: 400px;
+    margin: auto;
+    margin-top: 5%;
+}
+#centered-card  {
+    text-align: center;
+    font-size: 1.5rem; /* אופציונלי, לשינוי גודל הטקסט */
+    font-weight: bold; /* אופציונלי, להדגשה */
+}

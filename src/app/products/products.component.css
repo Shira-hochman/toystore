@@ -1,0 +1,241 @@
+@import 'primeicons/primeicons.css';
+
+
+.products-container { 
+  padding: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.actions .filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.p-card {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.p-card .p-card-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.p-card .p-card-subheader {
+  color: #555;
+  text-align: center;
+}
+
+.p-button {
+  margin-top: 10px;
+  width: 100%;
+}
+.products-container {
+  padding: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.actions .filter {
+  display: flex;
+  gap: 10px;
+}
+
+.p-dropdown {
+  width: 200px;
+}
+
+.p-grid {
+  gap: 20px;
+}
+
+.product-card {
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.p-button {
+  margin: 5px 0;
+}
+/* סגנון CSS עבור ההודעה */
+.success-message {
+  display: inline-flex; /* להצגת האייקון והטקסט בשורה אחת */
+  align-items: center; /* יישור מרכזי בין הטקסט לאייקון */
+  justify-content: center; /* מרכז התוכן */
+  background-color: #e6f7e6; /* רקע ירוק בהיר */
+  border: 1px solid #28a745; /* מסגרת ירוקה */
+  border-radius: 12px; /* קצוות מעוגלים */
+  padding: 12px 20px; /* ריווח פנימי */
+  font-size: 18px; /* גודל טקסט */
+  color: #155724; /* צבע טקסט ירוק כהה */
+  font-weight: bold; /* טקסט מודגש */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+  margin: 16px 0; /* ריווח חיצוני */
+  max-width: fit-content; /* גודל מותאם לתוכן */
+}
+
+.success-message i {
+  margin-right: 8px; /* רווח קטן בין האייקון לטקסט */
+  font-size: 20px; /* גודל אייקון */
+  color: #28a745; /* צבע אייקון */
+}
+
+.search-bar {
+  margin-bottom: 1em;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+.products-container .actions {
+  margin-bottom: 1em;
+}
+.success-message {
+  margin-bottom: 1em;
+  color: green;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.filter-panel {
+  background-color: #f9f9f9; /* צבע רקע */
+  padding: 1rem; /* ריווח פנימי */
+  border-radius: 8px; /* פינות עגולות */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* הצללה */
+}
+
+.filter-panel h3 {
+  font-size: 1.2rem; /* גודל כותרת */
+  color: #333; /* צבע טקסט */
+  margin-bottom: 1rem; /* ריווח תחתון */
+}
+
+.category-item {
+  display: flex;
+  align-items: center; /* יישור טקסט עם ה-checkbox */
+  margin-bottom: 0.5rem; /* ריווח בין קטגוריות */
+}
+
+.category-label {
+  margin-left: 0.5rem; /* ריווח מה-checkbox */
+  font-size: 1rem;
+  color: #555;
+}
+.filter-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.price-inputs {
+  
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.main-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* עיצוב הפאנל של הסינונים */
+.filters-panel {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.filters-panel h2 {
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+/* עיצוב כל פריט סינון */
+.filter-item {
+  margin-bottom: 25px;
+}
+
+.filter-item h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* עיצוב כפתורים */
+.p-button {
+  margin-top: 10px;
+}
+
+/* רשימת המוצרים */
+.products-container {
+  flex-grow: 1;
+}
+
+/* עיצוב כפתורי האייקונים */
+.icon-button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+.icon-button:hover {
+  background-color: #e0f0ff;
+}
+
+.icon-button i {
+  color: #007bff;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: row-reverse; /* משנה את הכיוון לימין לשמאל */
+  justify-content: space-between; /* מפזר את האלמנטים בצורה שווה בין השוליים */
+  gap: 20px;
+  padding: 30px;
+}
+.product-image{
+  padding: 15px;
+  margin-top: 10%;
+}
+.filters-container {
+  background-color: #f9f9f9 ; /* רקע לסינונים */
+  border: 1px solid #ddd; /* מסגרת לסינונים */
+  padding: 15px;
+  border-radius: 8px;
+}

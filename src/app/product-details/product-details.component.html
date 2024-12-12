@@ -1,0 +1,25 @@
+<div class="modal-overlay" *ngIf="product">
+  <div class="modal-content">
+    <p-card header="פרטי המוצר" class="p-mb-3">
+      <div class="product-details">
+        <div class="p-d-flex p-jc-between">
+          <h3>{{ product.productName }}</h3>
+          <h4>{{ product.price | currency }}</h4>
+        </div>
+        <p>גיל מומלץ: {{ product.age }}+</p>
+        <p *ngIf="product.description">תיאור: {{ product.description }}</p>
+        <img [src]="product.image" [alt]="product.productName" width="250" height="200">
+        
+        <div class="button-group">
+          <p-button label="חזור לרשימה" icon="pi pi-arrow-left" class="p-button-secondary" (click)="backToList()"></p-button>
+          <p-button label="הוסף לסל" icon="pi pi-shopping-cart" (click)="addToCard(product, $event)" class="p-button-success"></p-button>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+
+<div *ngIf="showAddToBasketMessage" class="success-message">
+  <i class="pi pi-check-circle"></i>
+  <p>הפריט נוסף בהצלחה לסל הקניות!</p>
+</div>

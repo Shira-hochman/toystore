@@ -1,0 +1,51 @@
+<article class="allCom">
+  <main dir="rtl" id="p-bag" class="p-m-4">
+    <h1 class="p-text-center p-mb-3">סל קניות ({{ numP }})</h1>
+    <h3 class="p-text-center p-mb-5">הסל מכיל {{ numP }} פריטים ומגיע לסך ₪{{ sum }}</h3>
+
+    <div id="allBag" class="p-grid p-dir-col">
+      <div *ngFor="let c of cards" class="p-col itemInCard">
+        <p-card class="p-shadow-3 p-mb-4">
+          <div class="p-grid p-align-center">
+            <!-- פרטי המוצר -->
+            <div class="p-col-12 p-md-4">
+              <!-- <img src="{{ c.product.img }}" class="product-img" /> -->
+              <section id="details">
+                <p class="p-mb-2 p-text-bold">{{ c.product.categoryName }}</p>
+                <h3 class="p-mb-2">{{ c.product.productName }}</h3>
+                
+                <div id="star" class="p-mb-2">
+                  <span id="sText">{{ c.product.productId }}</span>
+                  <i class="pi pi-star-fill" id="iconStar"></i>
+                </div>
+              </section>
+            </div>
+
+            <!-- כמות וכפתורים -->
+            <div class="p-col-12 p-md-4 quantity-section">
+              <div class="quantity-selector p-d-flex p-ai-center p-jc-center">
+                <button pButton icon="pi pi-minus" class="btn p-button-rounded p-button-secondary p-mr-2" (click)="decrease(c)"></button>
+                <span class="quantity p-text-bold">{{ c.amount }}</span>
+                <button pButton icon="pi pi-plus" class="btn p-button-rounded p-button-secondary p-ml-2" (click)="increase(c)"></button>
+              </div>
+            </div>
+
+            <!-- מחיר וכפתורי פעולה -->
+            <div class="p-col-12 p-md-4 action-section p-d-flex p-ai-center p-jc-between">
+              <section id="price" class="p-text-bold p-text-xl">₪{{ c.totalPrice }}</section>
+              <div class="action-buttons">
+                <button pButton icon="pi pi-heart" class="p-button-rounded p-button-outlined p-mr-2" id="heart"></button>
+                <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" label="הסר" (click)="remove(c)"></button>
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </main>
+  <div class="p-mt-4 p-text-center">
+    <button pButton label="לתשלום" icon="pi pi-credit-card" class="p-button-success p-button-lg" (click)="proceedToForm()"></button>
+  </div>
+
+</article>
+

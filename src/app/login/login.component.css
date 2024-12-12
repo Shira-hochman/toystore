@@ -1,0 +1,36 @@
+#f {
+    width: 400px;
+    border:green solid 2px;
+    margin: auto;
+    margin-top: 5%;
+  }
+  
+  
+  
+  .card-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    
+  }
+  
+  .p-field {
+    margin-bottom: 20px;
+  }
+
+  .custom-submit-button {
+    background-color: #5ac5d3; /* צבע ירוק */
+    border: none;
+    color: white;
+    
+  }
+  
+  .custom-submit-button:disabled {
+    background-color: green; /* צבע אפור כשכפתור מושבת */
+  }
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,67 @@
+<div id="f">
+<p-card header="תשלום">
+  <form class="p-fluid" #paymentForm="ngForm">
+ 
+    <div class="p-field p-input-icon-left">
+      <i class="pi pi-credit-card"></i>
+      <label for="cardNumber"> </label>
+      <input
+        id="cardNumber"
+        type="text"
+        pInputText
+        [(ngModel)]="cardNumber"
+        name="cardNumber"
+        #cardNumberInput="ngModel"
+        pattern="^\d{16}$"
+        placeholder="הכנס מספר כרטיס"
+        required
+      />
+      <small class="p-error" *ngIf="cardNumberInput.invalid && cardNumberInput.touched">
+  יש להזמין מספר תקין
+      </small>
+    </div>
+
+    <!-- תוקף -->
+    <div class="p-field p-input-icon-left">
+      <i class="pi pi-calendar"></i>
+      <label for="expiryDate"> </label>
+      <input
+        id="expiryDate"
+        type="text"
+        pInputText
+        [(ngModel)]="expiryDate"
+        name="expiryDate"
+        #expiryDateInput="ngModel"
+        pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+        placeholder="MM/YY"
+        required
+      />
+      <small class="p-error" *ngIf="expiryDateInput.invalid && expiryDateInput.touched">
+       יש להזין תאריך תקין
+      </small>
+    </div>
+
+    <div class="p-field p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <label for="cvv"></label>
+      <input
+        id="cvv"
+        type="text"
+        pInputText
+        [(ngModel)]="cvv"
+        name="cvv"
+        #cvvInput="ngModel"
+        pattern="^\d{3,4}$"
+        placeholder="הכנס CVV"
+        required
+      />
+      <small class="p-error" *ngIf="cvvInput.invalid && cvvInput.touched">
+        יש להזין מספר תקין
+      </small>
+    </div>
+
+    <!-- כפתור תשלום -->
+    <button pButton type="submit" label="שלם" class="p-button-success" [disabled]="paymentForm.invalid" (click)="toPay()"></button>
+  </form>
+</p-card>
+</div>

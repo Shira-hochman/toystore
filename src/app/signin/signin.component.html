@@ -1,0 +1,80 @@
+<div id="f">
+  <p-card >
+    <p id="centered-card">הרשמה</p>
+  <form #registrationForm="ngForm" (ngSubmit)="post()" class="p-fluid">
+    <div class="p-field">
+      <label for="name">שם</label>
+      <input
+        id="name"
+        type="text"
+        pInputText
+        [(ngModel)]="customer.customerName"
+        name="customerName"
+        required
+        pattern="^[\u0590-\u05FFa-zA-Z ]+$"
+        #customerName="ngModel"
+      />
+      <small *ngIf="customerName.invalid && customerName.touched" class="p-error">
+        יש להזין שם תקין (אותיות בעברית או אנגלית בלבד כולל רווחים).
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="phone">טלפון</label>
+      <input
+        id="phone"
+        type="tel"
+        pInputText
+        [(ngModel)]="customer.phone"
+        name="phone"
+        required
+        pattern="^\d{9,10}$"
+        #phone="ngModel"
+      />
+      <small *ngIf="phone.invalid && phone.touched" class="p-error">
+        יש להזין מספר טלפון תקין (9 או 10 ספרות).
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="email">אימייל</label>
+      <input
+        id="email"
+        type="email"
+        pInputText
+        [(ngModel)]="customer.email"
+        name="email"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        #email="ngModel"
+      />
+      <small *ngIf="email.invalid && email.touched" class="p-error">
+        יש להזין כתובת אימייל תקינה.
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="birthDate">תאריך לידה</label>
+      <input
+        id="birthDate"
+        type="date"
+        pInputText
+        [(ngModel)]="customer.birthDate"
+        name="birthDate"
+        #birthDateInput="ngModel"
+        (change)="validateBirthDate()"
+        required
+      />
+      <small class="p-error" *ngIf="birthDateError">
+        תאריך הלידה חייב להיות בין 1900 לשנה הנוכחית
+      </small>
+    </div>
+    <button
+      pButton
+      type="submit"
+      label="הרשם"
+      class="p-button-success"
+      [disabled]="registrationForm.invalid"
+    ></button>
+  </form>
+</p-card></div>

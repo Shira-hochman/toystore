@@ -1,0 +1,106 @@
+<div *ngIf="selectedProduct; else productListTemplate">
+  <app-product-details
+    [product]="selectedProduct"
+    (goBack)="goBack()"
+  ></app-product-details>
+</div>
+
+<ng-template #productListTemplate>
+  <div class="products-container">
+    <!-- כל הסינונים והמיונים -->
+    <div class="filters-container">
+      <!-- סינון לפי קטגוריות -->
+
+      <div class="search-bar">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="חפש מוצר..."
+          class="p-inputtext"
+          (input)="searchProducts()"
+        />
+      </div>
+      <select [(ngModel)]="selectedSortOption" 
+      (ngModelChange)="onSortOptionSelected($event)"> 
+      <option value="asc">מנמוך לגבוה</option>
+       <option value="desc">מגבוה לנמוך</option>
+        <option value="name">א-ת</option> </select> 
+      <h3 (click)="toggleCategoryFilter()" class="filter-header">
+        סנן לפי קטגוריות
+        <i class="pi" [ngClass]="{'pi-chevron-down': isCategoryFilterOpen, 'pi-chevron-right': !isCategoryFilterOpen}"></i>
+      </h3>
+      <div *ngIf="isCategoryFilterOpen">
+        <div *ngFor="let category of categoryList" class="category-item">
+          <p-checkbox 
+            [binary]="true"
+            [(ngModel)]="category.selected" 
+            (onChange)="onCategoryChange(category)">
+          </p-checkbox>
+          <label>{{ category.categoryName }}</label>
+        </div>
+      </div>
+    
+      <!-- סינון לפי מחיר -->
+      <h3 (click)="togglePriceFilter()" class="filter-header">
+        סנן לפי מחיר
+        <i class="pi" [ngClass]="{'pi-chevron-down': isPriceFilterOpen, 'pi-chevron-right': !isPriceFilterOpen}"></i>
+      </h3>
+      <div *ngIf="isPriceFilterOpen">
+        <div class="price-inputs">
+          <label>התחלה: ₪{{ priceRange[0] }}</label>
+          <label>סיום: ₪{{ priceRange[1] }}</label>
+        </div>
+        <p-slider
+          [(ngModel)]="priceRange"
+          [min]="0"
+          [max]="1000"
+          [range]="true"
+          (onSlideEnd)="onPriceRangeChange(priceRange[0], priceRange[1])"
+        ></p-slider>
+        <p>טווח מחירים: ₪{{ priceRange[0] }} - ₪{{ priceRange[1] }}</p>
+      </div>
+    
+      <!-- סינון לפי גיל -->
+      <h3 (click)="toggleAgeFilter()" class="filter-header">
+        סנן לפי גיל
+        <i class="pi" [ngClass]="{'pi-angle-down': isAgeFilterOpen, 'pi-chevron-right': !isAgeFilterOpen}"></i>
+      </h3>
+      <div *ngIf="isAgeFilterOpen">
+        <input type="number" [(ngModel)]="age" placeholder="גיל" class="p-inputtext">
+        <button pButton label="סינון לפי גיל" (click)="filterAge()" class="p-button-success">סנן לפי גיל</button>
+      </div>
+    </div>
+    
+    
+
+    <!-- הודעת הצלחה -->
+    <div *ngIf="showAddToBasketMessage" class="success-message">
+      <i class="pi pi-check-circle"></i>
+      <p>הפריט נוסף בהצלחה לסל הקניות!</p>
+    </div>
+
+    <!-- רשימת מוצרים -->
+    <div class="product-list p-grid">
+      <div class="p-col-12 p-md-4" *ngFor="let product of productList">
+       
+        <p-card [header]="product.productName" [subheader]="'מחיר: ' + product.price" class="product-card">
+
+          <ng-template pTemplate="content">
+            <p>גיל מומלץ: {{ product.age }}</p>
+            <img class="product-image" [src]="product.image" [alt]="product.productName" width="250" height="200">
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <!-- כפתור לפרטי המוצר -->
+            <button class="icon-button" (click)="showDetails(product)">
+              <i class="pi pi-eye"></i>
+            </button>
+            <!-- כפתור להוספה לסל -->
+            <button class="icon-button" (click)="addToCard(product, $event)">
+              <i class="pi pi-cart-arrow-down"></i>
+            </button>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</ng-template>
